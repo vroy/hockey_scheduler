@@ -1,0 +1,86 @@
+.list, .list th, .list td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: left;
+}
+
+.flash_error {
+  background-color: pink;
+  padding: 5px;
+  border: 2px solid grey;
+  margin-bottom: 20px;
+}
+
+.flash_message {
+  background-color: #7CED68;
+  padding: 5px;
+  border: 2px solid grey;
+  margin-bottom: 20px;
+}
+
+.link_button {
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  cursor: hand;
+}
+
+a, .link_button {
+  color: #003399;
+  text-decoration: none;
+  background-color: transparent;
+  padding:2px;
+}
+a:visited, .link_button:visited {
+  color: #0055BB;
+}
+a:hover, .link_button:hover {
+  background-color: #E6EEFF;
+}
+
+
+.main_menu {
+  background-color: #FCFFA3;
+  padding: 5px;
+  border: 1px solid grey;
+  font-size: 1.2em;
+}
+
+.sub_menu {
+  margin-left: 25px;
+  background-color: #FCFFA3;
+  padding: 5px;
+  border: 1px solid grey;
+  font-size: 0.8em;
+}
+
+
+#remaining_players, #selected_players {
+  list-style-type: none;
+  margin: 0;
+  float: left;
+  background: #eee;
+  padding: 5px;
+  width: 150px;
+}
+
+#remaining_players li, #selected_players li {
+  margin: 2px 2px 2px 2px;
+  padding: 2px;
+  width: 140px;
+  border: 1px solid grey;
+}
+
+#remaining_players li:hover, #selected_players li:hover {
+  cursor: hand;
+}
+
+
+.players_selection_box {
+  border: 1px solid grey;
+  margin: 5px;
+  padding: 10px;
+  float: left;
+}

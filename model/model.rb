@@ -1,0 +1,1 @@
+Sequel::Model.plugin :schema

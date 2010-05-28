@@ -1,0 +1,33 @@
+<form action="#{Rs(:insert)}" method="POST">
+  <div style="float:left;margin-right:100px;">
+    Time:
+    <input type="text" id="datestamp" name="datestamp" class="datepicker" />
+    #{time_dropdown}
+    <br/>
+    Location: <input type="text" id="location" name="location" /><br/>
+  </div>
+  
+  <div class="players_selection_box">
+    <b>Remaining Players (<span id="remaining_players_count">#{@remaining_players.size}</span>):</b><br/><br/>
+    <ul id="remaining_players" class="connectedSortable">
+      <?r @remaining_players.each do |player| ?>
+        <li class="ui-state-default">#{player.name}</li>
+      <?r end ?>
+    </ul>
+  </div>
+  
+  <div class="players_selection_box">
+    <b>Selected Players (<span id="selected_players_count">#{@permanent_players.size}</span>):</b><br/><br/>
+    <ul id="selected_players" class="connectedSortable">
+      <?r @permanent_players.each do |player| ?>
+        <li class="ui-state-default">#{player.name}</li>
+      <?r end ?>
+    </ul>
+  </div>
+  
+  <div style="clear:both;"></div>
+  
+  <br/><br/>
+  (<button type="reset" id="reset" name="reset" class="link_button">reset form</button>)
+  <input type="submit" id="save" name="save" value="Schedule game" />
+</form>

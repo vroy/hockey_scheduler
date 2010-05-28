@@ -1,0 +1,27 @@
+<table class="list">
+  <thead>
+    <th>Status</th>
+    <th>Player Name</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <?r @players.each do |player| ?>
+      <tr>
+        <td>#{player.status}</td>
+        <td>#{player.name}</td>
+        <td><a href="mailto:#{player.email}" title="Send email to #{player.email}">#{player.email}</a></td>
+        <td>#{player.phone}</td>
+        <td>
+          (<a href="#{Rs(:edit, player.id)}" title="Edit player.">edit</a>)
+          <?r if player.archived ?>
+            (<a href="#{Rs(:unarchive, :player_id => player.id)}" title="Un-Archive player.">un-archive</a>)
+          <?r else ?>
+            (<a href="#{Rs(:archive, :player_id => player.id)}" title="Archive player.">archive</a>)
+          <?r end ?>
+        </td>
+      </tr>
+    <?r end ?>
+  </tbody>
+</table>

@@ -1,0 +1,25 @@
+<?r if @player ?>
+  <form action="#{Rs(:update)}" method="POST">
+    <input type="hidden" id="player_id" name="player_id" value="#{@player.id}" />
+    
+    Status: 
+    <select id="status" name="status">
+      <?r PlayerStatuses.sort.each do |value, text| ?>
+        <?r if @player.status == value ?>
+          <option value="#{value}" selected="selected">#{text}</a>
+        <?r else ?>
+          <option value="#{value}">#{text}</a>
+        <?r end ?>
+      <?r end ?>
+    </select>
+    <br/>
+    Player Name: <input type="text" id="player_name" name="player_name" value="#{@player.name}" /><br/>
+    Email: <input type="text" id="email" name="email" value="#{@player.email}" /><br/>
+    Phone Number: <input type="text" id="phone" name="phone" value="#{@player.phone}" /><br/>
+    <br/>
+    (<button type="reset" id="reset" name="reset" class="link_button">reset</button>)
+    <input type="submit" id="save" name="save" value="Save" />
+  </form>
+<?r else ?>
+  <div class="flash_error">Sorry, we couldn't find the player you are looking for.</div>
+<?r end ?>

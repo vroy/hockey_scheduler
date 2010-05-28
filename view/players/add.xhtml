@@ -1,0 +1,15 @@
+<form action="#{Rs(:insert)}" method="POST">
+  Status: 
+  <select id="status" name="status">
+    <?r PlayerStatuses.sort.each do |value, text| ?>
+      <option value="#{value}">#{text}</a>
+    <?r end ?>
+  </select>
+  <br/>
+  Player Name: <input type="text" id="player_name" name="player_name" value="" /><br/>
+  Email: <input type="text" id="email" name="email" value="" /><br/>
+  Phone Number: <input type="text" id="phone" name="phone" value="" /><br/>
+  <br/>
+  (<button type="reset" id="reset" name="reset" class="link_button">reset form</button>)
+  <input type="submit" id="save" name="save" value="Add player" />
+</form>

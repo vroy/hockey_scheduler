@@ -1,0 +1,18 @@
+<table class="list">
+  <thead>
+    <th>Time</th>
+    <th>Location</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <?r @games.each do |game| ?>
+      <tr>
+        <td>#{game.timestamp.strftime("%a %b %d at %I:%M%p")}</td>
+        <td>#{game.location}</td>
+        <td>
+          (<a href="#{Rs(:edit, game.id)}" title="Edit game">edit</a>)
+        </td>
+      </tr>
+    <?r end ?>
+  </tbody>
+</table>
