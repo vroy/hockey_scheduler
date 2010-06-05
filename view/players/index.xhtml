@@ -11,14 +11,14 @@
       <tr>
         <td>#{player.status}</td>
         <td>#{player.name}</td>
-        <td><a href="mailto:#{player.email}" title="Send email to #{player.email}">#{player.email}</a></td>
+        <td><a href="mailto:#{player.email}" title="Open your default mail client to send an email to #{player.name} &lt;#{player.email}&gt;">#{player.email}</a></td>
         <td>#{player.phone}</td>
         <td>
-          (<a href="#{Rs(:edit, player.id)}" title="Edit player.">edit</a>)
+          (<a href="#{Rs(:edit, player.id)}" title="Edit player">edit</a>)
           <?r if player.archived ?>
-            (<a href="#{Rs(:unarchive, :player_id => player.id)}" title="Un-Archive player.">un-archive</a>)
+            (<a href="#{Rs(:unarchive, :player_id => player.id)}" title="Un-Archive player - This will simply show the player back in the main players list.">un-archive</a>)
           <?r else ?>
-            (<a href="#{Rs(:archive, :player_id => player.id)}" title="Archive player.">archive</a>)
+            (<a href="#{Rs(:archive, :player_id => player.id)}" title="Archive player - This will simply hide the player from the main players list.">archive</a>)
           <?r end ?>
         </td>
       </tr>
