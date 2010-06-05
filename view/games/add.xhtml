@@ -17,7 +17,7 @@
   </div>
   
   <div class="players_selection_box">
-    <b>Remaining Players (<span id="remaining_players_count">#{@remaining_players.size}</span>):</b><br/><br/>
+    <b>Available Players (<span id="remaining_players_count">#{@remaining_players.size}</span>):</b><br/><br/>
     <ul id="remaining_players" class="connectedSortable">
       <?r @remaining_players.each do |player| ?>
         <li class="ui-state-default">#{player.name}</li>
