@@ -1,7 +1,5 @@
-class GamesController < Ramaze::Controller
+class GamesController < Controller
   map '/games'
-  layout '/layout'
-  helper :dropdown
   
   def index
     @title = "Upcoming games"

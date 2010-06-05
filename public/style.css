@@ -40,6 +40,13 @@ a:hover, .link_button:hover {
   background-color: #E6EEFF;
 }
 
+a.help_link {
+  color: #735005;
+}
+a.help_link:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
 
 .main_menu {
   background-color: #FCFFA3;
@@ -83,4 +90,11 @@ a:hover, .link_button:hover {
   margin: 5px;
   padding: 10px;
   float: left;
+}
+
+
+.help_popup h3 { color: #735005 }
+
+#facebox a:hover {
+  background-color: transparent;
 }

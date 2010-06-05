@@ -1,7 +1,5 @@
-class MainController < Ramaze::Controller
+class MainController < Controller
   map '/'
-  layout '/layout'
-  helper :dropdown
   
   def index
     @title = "Index"

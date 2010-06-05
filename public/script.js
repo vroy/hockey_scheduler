@@ -27,6 +27,7 @@ $(document).ready(function() {
 	  }
 
 	}).disableSelection();
-
+  
+  $('a[rel*=facebox]').facebox();
   
 });

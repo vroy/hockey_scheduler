@@ -16,10 +16,17 @@ rescue LoadError => e
   exit!(1)
 end
 
-DB = Sequel.sqlite('hockey_scheduler.db')
+APP_ROOT = File.expand_path(File.dirname(__FILE__))
+$LOAD_PATH.unshift(APP_ROOT)
+Ramaze::Global.root = APP_ROOT # Used so ramaze/helper.rb#require_helper
 
-Ramaze::acquire("controller/*")
-Ramaze::acquire("model/*")
+DB = Sequel.sqlite("#{APP_ROOT}/hockey_scheduler.db")
+
+require "#{APP_ROOT}/controller/controller" # required first so other controllers load up fine.
+Ramaze::acquire("#{APP_ROOT}/snippets/*")
+Ramaze::acquire("#{APP_ROOT}/helper/*")
+Ramaze::acquire("#{APP_ROOT}/controller/*")
+Ramaze::acquire("#{APP_ROOT}/model/*")
 
 DefaultErrorMessage = "Something went wrong, we're looking into it."
 

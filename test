@@ -1,0 +1,30 @@
+#!/usr/local/bin/ruby
+
+require "app"
+
+if ARGV.delete("--success-only")
+  @display_successful_tests_only = true
+end
+
+if ARGV.delete("--failures-only")
+  @display_failed_tests_only = true
+end
+  
+def test(name, &block)
+  if !block.call
+    puts "  #{name.inspect} failed.".red if !@display_successful_tests_only
+  else
+    puts "  #{name.inspect} passed.".green if !@display_failed_tests_only
+  end
+end
+
+to_test = (ARGV.empty?) ? Dir["specs/**/*"] : ARGV
+
+to_test.each do |test_filename|
+  next if File.directory?(test_filename)
+  
+  puts "Testing: '#{test_filename}'".yellow
+  require test_filename
+  
+  puts "\n"
+end
