@@ -1,100 +1,40 @@
-.list, .list th, .list td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 5px;
-  text-align: left;
-}
+/* Body/Containers */
+#body { width:1000px; text-align:center; margin-left:auto; margin-right:auto; }
+.container { text-align:left; }
+.content { border:1px solid gray; padding:10px; }
 
-.flash_error {
-  background-color: pink;
-  padding: 5px;
-  border: 2px solid grey;
-  margin-bottom: 20px;
-}
+/* Global / Miscelaneous */
+.help_popup { color:#735005; }
+h1, h2, h3, h4, h5, h6 { color:#003399; margin-top:0.2em; }
+h4 { margin-bottom:0.2em; }
 
-.flash_message {
-  background-color: #7CED68;
-  padding: 5px;
-  border: 2px solid grey;
-  margin-bottom: 20px;
-}
+/* Lists */
+.list, .list th, .list td { border:1px solid black; border-collapse:collapse; padding:5px; text-align:left; }
 
-.link_button {
-  background-color: transparent;
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
-  cursor: hand;
-}
+/* Action Messages */
+.flash_error { background-color:pink; padding:5px; border:2px solid grey; margin-bottom:20px; }
+.flash_message { background-color:#7CED68; padding:5px; border:2px solid grey; margin-bottom:20px;}
 
-a, .link_button {
-  color: #003399;
-  text-decoration: none;
-  background-color: transparent;
-  padding:2px;
-}
-a:visited, .link_button:visited {
-  color: #0055BB;
-}
-a:hover, .link_button:hover {
-  background-color: #E6EEFF;
-}
+/* Links and Buttons */
+.link_button { background-color:transparent; border:none; text-decoration:underline; cursor:pointer; cursor:hand; }
+a, .link_button { color:#003399; text-decoration:none; background-color:transparent; padding:2px; }
+a:visited, .link_button:visited { color:#0055BB; }
+a:hover, .link_button:hover { background-color:#E6EEFF; }
+a.help_link { color:#735005; }
+a.help_link:hover { background-color:transparent; text-decoration:underline; }
 
-a.help_link {
-  color: #735005;
-}
-a.help_link:hover {
-  background-color: transparent;
-  text-decoration: underline;
-}
+.current_section { background-color:E6EEFF; }
 
-.main_menu {
-  background-color: #FCFFA3;
-  padding: 5px;
-  border: 1px solid grey;
-  font-size: 1.2em;
-}
+/* Players selection boxes on the /players/add */
+/* Should probably be changed to classes so these selection boxes can be re-used */
+#remaining_players, #selected_players { list-style-type:none; margin:0px; float:left; background:#eee; padding:5px; width:150px; }
+#remaining_players li, #selected_players li { margin:2px 2px 2px 2px; padding:2px; width:140px; border:1px solid grey; }
+#remaining_players li:hover, #selected_players li:hover { cursor:hand; }
+.players_selection_box { .border:1px solid grey; margin-left:10px; padding-left:10px; float:left; }
 
-.sub_menu {
-  margin-left: 25px;
-  background-color: #FCFFA3;
-  padding: 5px;
-  border: 1px solid grey;
-  font-size: 0.8em;
-}
+/* Fixing Facebox <Close> button, otherwise it uses the background-color of the a:hover links */
+#facebox a:hover { background-color:transparent; }
 
-
-#remaining_players, #selected_players {
-  list-style-type: none;
-  margin: 0;
-  float: left;
-  background: #eee;
-  padding: 5px;
-  width: 150px;
-}
-
-#remaining_players li, #selected_players li {
-  margin: 2px 2px 2px 2px;
-  padding: 2px;
-  width: 140px;
-  border: 1px solid grey;
-}
-
-#remaining_players li:hover, #selected_players li:hover {
-  cursor: hand;
-}
-
-
-.players_selection_box {
-  border: 1px solid grey;
-  margin: 5px;
-  padding: 10px;
-  float: left;
-}
-
-
-.help_popup h3 { color: #735005 }
-
-#facebox a:hover {
-  background-color: transparent;
-}
+/* Forms */
+.clean_form th { text-align:right; font-weight:normal;}
+.clean_form td { text-align:left; }

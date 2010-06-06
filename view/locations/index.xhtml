@@ -1,0 +1,16 @@
+<div style="float:right;">
+  #{render_template('locations_links.xhtml')}
+</div>
+
+<table class="list">
+  <thead>
+    <th>Location</th>
+  </thead>
+  <tbody>
+    <?r @locations.each do |location| ?>
+      <tr>
+        <td>#{location.name}</td>
+      </tr>
+    <?r end ?>
+  </tbody>
+</table>

@@ -1,3 +1,7 @@
+<div style="float:right;">
+  #{render_template('players_links.xhtml')}
+</div>
+
 <?r if @player ?>
   <form action="#{Rs(:update)}" method="POST">
     <input type="hidden" id="player_id" name="player_id" value="#{@player.id}" />

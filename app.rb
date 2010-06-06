@@ -31,3 +31,5 @@ Ramaze::acquire("#{APP_ROOT}/model/*")
 DefaultErrorMessage = "Something went wrong, we're looking into it."
 
 AdministratorEmail = "vincentroy8@gmail.com"
+
+AppName = "Hockey Scheduler"

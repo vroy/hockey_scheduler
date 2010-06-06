@@ -1,10 +1,26 @@
+<div style="float:right;">
+  #{render_template('games_links.xhtml')}
+</div>
+
+<br/><br/>
+
+<div stlye="clear:both;"></div>
+
 <form action="#{Rs(:insert)}" method="POST">
   <div style="float:left;margin-right:100px;">
-    Time:
-    <input type="text" id="datestamp" name="datestamp" class="datepicker" />
-    #{time_dropdown(:timestamp)}
-    <br/>
-    Location: <input type="text" id="location" name="location" /><br/>
+    <table class="clean_form">
+      <tr>
+        <th>When</th>
+        <td>
+          <input type="text" id="datestamp" name="datestamp" class="datepicker" />
+          #{time_dropdown(:timestamp)}
+        </td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td><input type="text" id="location" name="location" /></td>
+      </tr>
+    </table>
   </div>
   
   <div class="players_selection_box">

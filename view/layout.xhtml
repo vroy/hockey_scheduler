@@ -3,78 +3,45 @@
     <title>Hockey Scheduler</title>
     <link type="text/css" rel="stylesheet" href="/style.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="/jquery/jquery-ui-1.8.1/redmond-theme/jquery-ui-1.8.1.custom.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="/jquery/plugins/superfish-1.4.8/css/superfish.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="/jquery/plugins/superfish-1.4.8/css/superfish-navbar.css" media="screen" />
 		<link type="text/css" rel="stylesheet" href="/facebox/facebox.css" />	
 		
 		<script type="text/javascript" src="/jquery/jquery-1.4.2.js"></script>
 		<script type="text/javascript" src="/jquery/jquery-ui-1.8.1/jquery-ui-1.8.1.custom.min.js"></script>
-		<script type="text/javascript" src="/jquery/plugins/superfish-1.4.8/js/superfish.js"></script>
 		<script type="text/javascript" src="/facebox/facebox.js"></script>
 		
-		
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script> 
+
 		<script type="text/javascript" src="/script.js"></script>
+		<script type="text/javascript" src="/googlemaps.js"></script>
   </head>
   <body>
-    <h1>Hockey Scheduler - #{@title}</h1>
-    
-    <?r
-      menus = [
-        [ R(MainController), "Documentation", "Index", [] ],
+    <div id="body">
+      <h3 style="float:left;">#{AppName}</h3>
+      
+      <div style="float:right;">
+        #{render_menu([
+          [ R(MainController), "Documentation", "Index" ],
+          [ R(PlayersController), "Show list of players", "Players" ],
+          [ R(GamesController), "Show list of upcoming games", "Games" ],
+          [ R(LocationsController), "Show list of game locations", "Locations" ],
+        ])}
+      </div>
+      
+      <div style="clear:both;"></div>
+      
+      <div class="container">
+        <?r if flash[:error] ?>
+          <div class="flash_error">#{flash[:error]}</div>
+        <?r end ?>
         
-        [ R(PlayersController), "List of players", "Players",
-            [
-              [ R(PlayersController, :add), "Add player", "Add player" ],
-              [ R(PlayersController, :index, :show_archived => true), "Show archived players", "Archived"],
-            ]
-        ],
+        <?r if flash[:message] ?>
+          <div class="flash_message">#{flash[:message]}</div>
+        <?r end ?>
         
-        [ R(GamesController), "List of upcoming games", "Games",
-            [
-              [ R(GamesController, :add), "Schedule game", "Schedule game"],
-            ],
-        ],
-      ]
-    ?>
-    
-		<ul class="sf-menu sf-navbar"> 
-		  <?r menus.each do |path, title, text, submenus| ?>
-		    <?r if request.path.split("/")[1] == path.split("/")[1] ?>
-  		    <li class="current">
-  		  <?r else ?>
-  		    <li>
-  		  <?r end ?>
-  		  
-  		    <a href="#{path}" title="#{title}">#{text}</a>
-  		    
-  		    <?r if !submenus.empty? ?>
-  		      <ul>
-    		      <?r submenus.each do |sub_path, sub_title, sub_text| ?>
-    		        <?r accessed_path = request.env["REQUEST_URI"].split(request.env["HTTP_HOST"]).last ?>
-    		        <?r if accessed_path == sub_path ?>
-    		          <li class="current">
-    		        <?r else ?>
-    		          <li>
-    		        <?r end ?>
-    		          <a href="#{sub_path}" title="#{sub_title}">#{sub_text}</a>
-    		        </li>
-    		      <?r end ?>
-    		    </ul>
-  		    <?r end ?>
-  		  </li>
-  		<?r end ?>
-    </ul>
-    
-		<div style="clear:both;"></div>
-    
-    <?r if flash[:error] ?>
-      <div class="flash_error">#{flash[:error]}</div>
-    <?r end ?>
-    
-    <?r if flash[:message] ?>
-      <div class="flash_message">#{flash[:message]}</div>
-    <?r end ?>
-    
-    #{@content}
+        <div class="content">
+          #{@content}
+        </div>
+      </div>
+    </div>
   </body>
 </html>

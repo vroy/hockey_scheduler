@@ -13,11 +13,8 @@ $(document).ready(function() {
 		buttonImageOnly: true
 	});
 	
-	setTimeout(function(){
-		$(".flash_error").fadeOut(1000, function() { $(this).remove() });
-		$(".flash_message").fadeOut(1000, function() { $(this).remove() });
-	}, 5000);
-	
+  msgFadeOut(".flash_error");
+	msgFadeOut(".flash_message");
 	
 	$("#remaining_players, #selected_players").sortable({
 		connectWith: '.connectedSortable',
@@ -31,3 +28,11 @@ $(document).ready(function() {
   $('a[rel*=facebox]').facebox();
   
 });
+
+function msgFadeOut(klass) {
+  if ($(klass).length > 0) {
+    setTimeout(function(){
+  	  $(klass).fadeOut(1000, function() { $(this).remove() });
+    }, 5000);
+  }
+}
